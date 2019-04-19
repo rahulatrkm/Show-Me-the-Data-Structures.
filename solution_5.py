@@ -14,7 +14,7 @@ class Block:
       sha.update(hash_str)
       return sha.hexdigest()
 
-
+# Method 0
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -29,6 +29,7 @@ class LinkedList:
             self.last = Block(timestamp, data, temp)
             self.last.previous_hash = temp
 
+# Method 1
 block0 = Block('13:12 4/2/2019', "Some Information", 0)
 block1 = Block('13:12 4/2/2019', "Another Information", block0)
 block2 = Block('13:12 4/2/2019', "Some more Information", block1)
