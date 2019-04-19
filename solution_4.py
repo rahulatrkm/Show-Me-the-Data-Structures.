@@ -48,3 +48,4 @@ def is_user_in_group(user, group):
 
 
 print(is_user_in_group("child", child))
+print(is_user_in_group("", child))
