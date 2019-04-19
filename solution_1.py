@@ -19,7 +19,7 @@ class LRU_Cache(object):
         # Retrieve item from provided key. Return -1 if non existant.
         if key is None:
             return -1
-            
+
         return self.cache_val.get(key, -1)
 
     def set(self, key, value):
@@ -38,4 +38,4 @@ our_cache.set(3, 2)
 print(our_cache.cache_val)
 print(our_cache.get(1))       # returns -1
 print(our_cache.get(2))       # returns 2
-print(our_cache.get(None))       # return 2
+print(our_cache.get(None))    # return -1

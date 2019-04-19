@@ -1,5 +1,5 @@
 import hashlib
-
+import datetime
 class Block:
 
     def __init__(self, timestamp, data, previous_hash):
@@ -29,17 +29,22 @@ class LinkedList:
             self.last = Block(timestamp, data, temp)
             self.last.previous_hash = temp
 
+def get_utc_time():
+      utc = datetime.datetime.utcnow()
+      return utc.strftime("%d/%m/%Y %H:%M:%S")
+
 # Method 1
-block0 = Block('13:12 4/2/2019', "Some Information", 0)
-block1 = Block('13:12 4/2/2019', "Another Information", block0)
-block2 = Block('13:12 4/2/2019', "Some more Information", block1)
+block0 = Block(get_utc_time(), "Some Information", 0)
+block1 = Block(get_utc_time(), "Another Information", block0)
+block2 = Block(get_utc_time(), "Some more Information", block1)
 
 print(block0.data)
 print(block0.hash)
+print(block0.timestamp)
 print(block1.previous_hash.data)
 
 temp = LinkedList()
-temp.append('13:12 4/2/2019', "Some Information")
-temp.append('13:12 4/2/2019', "Another Information")
+temp.append(get_utc_time(), "Some Information")
+temp.append(get_utc_time(), "Another Information")
 print(temp.last.data)
 print(temp.last.previous_hash.data)

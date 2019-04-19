@@ -15,7 +15,9 @@ def find_files(suffix, path, files=[]):
     Returns:
        a list of paths
     """
-    temp = suffix + '/' + path
+    temp = suffix
+    if path:
+        temp = suffix + '/' + path
     for f in os.listdir(temp):
         temp1 = temp +  '/' + f
         #print(f)
@@ -28,3 +30,5 @@ def find_files(suffix, path, files=[]):
     return files
 
 print(find_files('.', 'testdir'))
+print(find_files('.', ''))
+print(find_files('.', 'testdir/subdir3'))
