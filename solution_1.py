@@ -17,10 +17,10 @@ class LRU_Cache(object):
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if non existant.
-        if key in self.cache_val:
-            return self.cache_val[key]
-        else:
+        if key is None:
             return -1
+            
+        return self.cache_val.get(key, -1)
 
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
@@ -29,12 +29,13 @@ class LRU_Cache(object):
         self.cache_order.append(key)
         self.cache_val[key] = value
 '''
-For testing
-our_cache = LRU_Cache(1)
+For testing'''
+our_cache = LRU_Cache(2)
 
 our_cache.set(1, 1)
 our_cache.set(2, 2)
+our_cache.set(3, 2)
 print(our_cache.cache_val)
 print(our_cache.get(1))       # returns -1
 print(our_cache.get(2))       # returns 2
-'''
+print(our_cache.get(None))       # return 2
