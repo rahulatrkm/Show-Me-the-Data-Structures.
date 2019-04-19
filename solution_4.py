@@ -23,6 +23,7 @@ parent = Group("parent")
 child = Group("child")
 sub_child = Group("subchild")
 
+
 sub_child_user = "sub_child_user"
 sub_child.add_user(sub_child_user)
 
@@ -47,5 +48,6 @@ def is_user_in_group(user, group):
     return False
 
 
-print(is_user_in_group("child", child))
-print(is_user_in_group("", child))
+print(is_user_in_group("child", child)) #True
+print(is_user_in_group("", child))  #False
+print(is_user_in_group("sub_child_user", parent))   #True
